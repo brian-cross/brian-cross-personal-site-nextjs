@@ -142,7 +142,10 @@ export default function Header() {
         .nav-menu {
           visibility: hidden;
           position: fixed;
-          inset: 0;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: ${sizes.fullHeight};
           z-index: 1;
           display: flex;
           align-items: center;
