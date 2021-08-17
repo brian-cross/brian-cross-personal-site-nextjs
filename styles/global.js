@@ -27,7 +27,7 @@ const globalStyles = css.global`
   #__next {
     display: flex;
     flex-direction: column;
-    min-height: ${sizes.fullHeight};
+    height: ${sizes.fullHeight};
   }
 
   body {
@@ -114,7 +114,7 @@ const globalStyles = css.global`
     border: 1px solid ${colors.lightTranslucent};
     width: 100%;
     margin-top: 0.5em;
-    margin-bottom: 1em;
+    margin-bottom: 1.75em;
     padding: 0.5em;
   }
 
@@ -188,18 +188,10 @@ const globalStyles = css.global`
   }
 
   .text-block {
-    margin: 1.5rem 0;
-
-    @media (min-width: ${sizes.mobileBreakpoint}) {
-      margin: 2.5rem 0;
-    }
+    margin: 2.5rem 0;
 
     &.large {
-      margin: 1.75rem 0;
-
-      @media (min-width: ${sizes.mobileBreakpoint}) {
-        margin: 5rem 0;
-      }
+      margin: 5rem 0;
     }
   }
 `;

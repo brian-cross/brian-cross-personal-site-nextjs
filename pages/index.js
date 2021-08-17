@@ -14,21 +14,19 @@ export default function Home() {
           <br />
           Edmonton Alberta Canada
         </h2>
-        <div className="text-block">
-          <p>
-            I build fast, secure, accessible websites for businesses and
-            individuals.
-          </p>
-          <p>
-            I focus on minimizing website load time, maximizing SEO, and
-            optimizing accessibility.
-          </p>
-          <p>
-            I use responsive design and fluid layout techniques to ensure my
-            designs look great and function properly on all device sizes.
-          </p>
-          <p>Interested? Click below to get started.</p>
-        </div>
+        <p className="text-block">
+          I build fast, secure, accessible websites for businesses and
+          individuals.
+        </p>
+        <p className="text-block">
+          I focus on minimizing website load time, maximizing SEO, and
+          optimizing accessibility.
+        </p>
+        <p className="text-block">
+          I use responsive design and fluid layout techniques to ensure my
+          designs look great and function properly on all device sizes.
+        </p>
+        <p className="text-block">Interested? Click below to get started.</p>
         <Link href="/contact">
           <a className="btn large">Get in touch</a>
         </Link>
