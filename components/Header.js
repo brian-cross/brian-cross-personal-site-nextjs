@@ -92,7 +92,7 @@ export default function Header() {
           z-index: 2;
           border: none;
           padding: 0;
-          height: 2rem;
+          height: ${sizes.headerContentHeightSm};
 
           &:hover {
             // Override default button hover state
