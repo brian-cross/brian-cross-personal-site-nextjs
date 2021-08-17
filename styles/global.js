@@ -24,7 +24,7 @@ const globalStyles = css.global`
     }
   }
 
-  #__next {
+  #smooth-scroll-container {
     display: flex;
     flex-direction: column;
     height: ${sizes.fullHeight};

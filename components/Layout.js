@@ -20,9 +20,11 @@ export default function Layout({
           content="I build fast, secure, accessible websites for businesses and individuals with a focus on minimizing website load time, maximizing SEO, and optimizing accessibility."
         />
       </Head>
-      <Header />
-      {children}
-      <Footer />
+      <div id="smooth-scroll-container">
+        <Header />
+        {children}
+        <Footer />
+      </div>
     </>
   );
 }
