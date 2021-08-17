@@ -2,11 +2,6 @@ import css from "styled-jsx/css";
 import { colors, sizes, font } from "./theme";
 
 const globalStyles = css.global`
-  $max-container-width: 75rem;
-
-  $base-font-size: clamp(12px, 2vmin, 16px);
-  $font-family: "Montserrat", sans-serif;
-
   /****************************************************************************
   * Global styles 
   *****************************************************************************/
@@ -32,7 +27,7 @@ const globalStyles = css.global`
   #__next {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: ${sizes.fullHeight};
   }
 
   body {
@@ -184,7 +179,7 @@ const globalStyles = css.global`
 
   .container {
     width: 90%;
-    max-width: $max-container-width;
+    max-width: ${sizes.maxContainerWidth};
     margin: 0 auto;
   }
 
