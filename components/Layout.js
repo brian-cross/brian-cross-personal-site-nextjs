@@ -10,6 +10,15 @@ export default function Layout({
     <>
       <Head>
         <title>{title}</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+          key="viewport"
+        />
+        <meta
+          name="description"
+          content="I build fast, secure, accessible websites for businesses and individuals with a focus on minimizing website load time, maximizing SEO, and optimizing accessibility."
+        />
       </Head>
       <Header />
       {children}
