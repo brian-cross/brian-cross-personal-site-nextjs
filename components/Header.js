@@ -7,9 +7,6 @@ export default function Header() {
 
   function handleNav() {
     menuRef.current.classList.toggle("open");
-    document.body.style.overflow !== "hidden"
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = null);
   }
 
   return (
@@ -160,7 +157,7 @@ export default function Header() {
           }
 
           a {
-            display: block;
+            display: inline-block;
             margin: 0.75em 0;
           }
         }
