@@ -3,6 +3,7 @@ import useSmoothScroll from "../hooks/useSmoothScroll";
 
 export default function About() {
   useSmoothScroll();
+
   return (
     <main className="container">
       <div className="content">
