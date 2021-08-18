@@ -27,7 +27,7 @@ const globalStyles = css.global`
   #smooth-scroll-container {
     display: flex;
     flex-direction: column;
-    height: ${sizes.fullHeight};
+    min-height: ${sizes.fullHeight};
   }
 
   body {
@@ -105,8 +105,6 @@ const globalStyles = css.global`
 
   input,
   textarea {
-    /* font-size: max(16px, 1rem); */
-    font-size: 16px;
     font-weight: 300;
     color: ${colors.textLight};
     background: ${colors.darkTranslucent};
@@ -193,6 +191,17 @@ const globalStyles = css.global`
     &.large {
       margin: 5rem 0;
     }
+  }
+
+  /****************************************************************************
+  * Using Locomotive Scroll so hide native scrollbar
+  *****************************************************************************/
+  * {
+    scrollbar-width: none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 `;
 
