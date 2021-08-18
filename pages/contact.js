@@ -1,4 +1,8 @@
+import useSmoothScroll from "../hooks/useSmoothScroll";
+
 export default function Contact() {
+  useSmoothScroll();
+
   function handleSubmit(e) {
     e.preventDefault();
     console.log(e.target);

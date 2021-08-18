@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { colors } from "../styles/theme";
+import useSmoothScroll from "../hooks/useSmoothScroll";
 
 export default function Home() {
+  useSmoothScroll();
+
   return (
     <main className="container">
       <div className="content">

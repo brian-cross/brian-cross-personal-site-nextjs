@@ -1,4 +1,8 @@
+import useSmoothScroll from "../hooks/useSmoothScroll";
+
 export default function Services() {
+  useSmoothScroll();
+
   return (
     <main className="container">
       <div className="content">
