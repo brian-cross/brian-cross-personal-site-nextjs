@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { useRef } from "react";
+import { useState } from "react";
 import { colors, sizes } from "../styles/theme";
+import NavMenu from "./NavMenu";
 
 export default function Header() {
-  const menuRef = useRef();
+  const [navOpen, setNavOpen] = useState(false);
 
   function handleNav() {
-    menuRef.current.classList.toggle("open");
+    setNavOpen(prev => !prev);
   }
 
   return (
@@ -51,41 +52,10 @@ export default function Header() {
           <path className="bar" d="M 10 40 H 70" />
         </svg>
       </button>
-      <div className="nav-menu" ref={menuRef}>
-        <div className="container">
-          <nav onClick={handleNav}>
-            <ul>
-              <li>
-                <Link href="/">
-                  <a className="h1">Home</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/about">
-                  <a className="h1">About</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact">
-                  <a className="h1">Contact</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/services">
-                  <a className="h1">Services</a>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
+      {navOpen ? <NavMenu onClick={handleNav} /> : null}
       <style jsx>{`
         header {
           justify-content: space-between;
-
-          a {
-            text-decoration: none;
-          }
         }
 
         .burger {
@@ -137,29 +107,6 @@ export default function Header() {
 
         #logo-second-path {
           fill: ${colors.textLight};
-        }
-
-        .nav-menu {
-          visibility: hidden;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: ${sizes.fullHeight};
-          z-index: 1;
-          display: flex;
-          align-items: center;
-          background: black;
-          text-align: right;
-
-          &.open {
-            visibility: visible;
-          }
-
-          a {
-            display: inline-block;
-            margin: 0.75em 0;
-          }
         }
       `}</style>
     </header>
