@@ -116,19 +116,11 @@ const globalStyles = css.global`
     padding: 0.5em;
   }
 
-  header,
-  footer {
-    width: 100%;
-    padding: 1em 0;
-    display: flex;
-    font-weight: 300;
-    text-transform: uppercase;
-  }
-
   main {
     display: flex;
     align-items: center;
     flex-grow: 1;
+    margin-top: 5rem;
   }
 
   ul {
@@ -178,7 +170,7 @@ const globalStyles = css.global`
   .container {
     width: 90%;
     max-width: ${sizes.maxContainerWidth};
-    margin: 0 auto;
+    margin-inline: auto;
   }
 
   .content {
