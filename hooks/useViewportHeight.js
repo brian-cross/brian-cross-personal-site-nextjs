@@ -12,8 +12,9 @@ export default function useViewportHeight() {
 
     setVh();
 
-    // Re-compute 1vh on orientation change
+    // Re-compute 1vh on orientation change or window resize
     const mediaQueryList = window.matchMedia("(orientation: portrait)");
     mediaQueryList.addEventListener("change", setVh);
+    window.addEventListener("resize", setVh);
   }, []);
 }
