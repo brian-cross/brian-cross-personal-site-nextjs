@@ -8,9 +8,9 @@ export function useSlidingHeader() {
       start: "top top",
       onUpdate: self => {
         if (self.direction === 1) {
-          gsap.to("header", { yPercent: -100, ease: "power1" });
+          gsap.to("header", { yPercent: -100, ease: "none" });
         } else {
-          gsap.to("header", { yPercent: 0, ease: "power1" });
+          gsap.to("header", { yPercent: 0, ease: "none" });
         }
       },
     });
