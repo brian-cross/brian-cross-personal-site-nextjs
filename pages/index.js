@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { colors } from "../styles/theme";
-import { useSlidingHeader, useSmoothScroll } from "../hooks";
+import { useSlidingHeader, useSmoothScroll, useRevealHeading } from "../hooks";
 
 export default function Home() {
   useSmoothScroll();
   useSlidingHeader();
+  const headingRef = useRevealHeading();
 
   return (
     <main className="container">
       <div className="content">
-        <h1>
+        <h1 ref={headingRef}>
           <span className="h1 bold-highlight">Brian</span>{" "}
           <span className="h1 shift-left">Cross</span>
         </h1>

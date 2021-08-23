@@ -1,8 +1,9 @@
-import { useSlidingHeader, useSmoothScroll } from "../hooks";
+import { useSlidingHeader, useSmoothScroll, useRevealHeading } from "../hooks";
 
 export default function Contact() {
   useSmoothScroll();
   useSlidingHeader();
+  const headingRef = useRevealHeading();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -12,7 +13,7 @@ export default function Contact() {
   return (
     <main className="container">
       <div className="content">
-        <h1>Contact Me</h1>
+        <h1 ref={headingRef}>Contact Me</h1>
         <h2>Let's discuss your project</h2>
         <div className="text-block">
           <p>
