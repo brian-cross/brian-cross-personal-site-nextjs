@@ -1,8 +1,9 @@
 import Link from "next/link";
-import useSmoothScroll from "../hooks/useSmoothScroll";
+import { useSmoothScroll, useSlidingHeader } from "../hooks";
 
 export default function About() {
   useSmoothScroll();
+  useSlidingHeader();
 
   return (
     <main className="container">

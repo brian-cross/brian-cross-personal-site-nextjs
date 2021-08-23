@@ -1,7 +1,8 @@
-import useSmoothScroll from "../hooks/useSmoothScroll";
+import { useSlidingHeader, useSmoothScroll } from "../hooks";
 
 export default function Services() {
   useSmoothScroll();
+  useSlidingHeader();
 
   return (
     <main className="container">
