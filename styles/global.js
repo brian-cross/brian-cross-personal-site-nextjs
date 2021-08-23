@@ -6,7 +6,7 @@ const globalStyles = css.global`
   * Global styles 
   *****************************************************************************/
 
-  * {
+  html {
     box-sizing: border-box;
     font-size: ${font.size.base};
 
@@ -17,7 +17,9 @@ const globalStyles = css.global`
     @media (min-width: 3500px) {
       font-size: 32px;
     }
+  }
 
+  * {
     &:focus-visible {
       outline-color: ${colors.highlight};
       outline-style: dashed;
