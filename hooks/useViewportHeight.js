@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default function useViewportHeight() {
+export function useViewportHeight() {
   useEffect(() => {
     // Fix for 100vh bug on mobile browsers
     function setVh() {
