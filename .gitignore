@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# .npmrc contains the GSAP auth token
+.npmrc
