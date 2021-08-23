@@ -1,22 +1,51 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
+import { ScrollTrigger } from "../gsap";
 
-export default function useSmoothScroll() {
-  const scrollContainer = useRef();
-  const scroll = useRef();
-
+export function useSmoothScroll() {
   useEffect(() => {
-    (async () => {
-      const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      scrollContainer.current = document.getElementById(
-        "smooth-scroll-container"
-      );
+    let locoScroll;
 
-      scroll.current = new LocomotiveScroll({
-        el: scrollContainer.current,
+    function initSmoothScroll() {
+      const LocomotiveScroll = require("locomotive-scroll").default;
+      const container = document.getElementById("smooth-scroll-container");
+
+      locoScroll = new LocomotiveScroll({
+        el: container,
         smooth: true,
       });
-    })();
 
-    return () => scroll.current.destroy();
+      locoScroll.on("scroll", ScrollTrigger.update);
+
+      ScrollTrigger.scrollerProxy(container, {
+        scrollTop(value) {
+          return arguments.length
+            ? locoScroll.scrollTo(value, 0, 0)
+            : locoScroll.scroll.instance.scroll.y;
+        },
+        getBoundingClientRect() {
+          return {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight,
+          };
+        },
+        pinType: container.style.transform ? "transform" : "fixed",
+      });
+
+      ScrollTrigger.defaults({
+        scroller: container,
+      });
+
+      ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+      ScrollTrigger.refresh();
+
+      const resizeObserver = new ResizeObserver(() => ScrollTrigger.refresh());
+      resizeObserver.observe(container);
+    }
+
+    initSmoothScroll();
+
+    return () => locoScroll.destroy();
   }, []);
 }
