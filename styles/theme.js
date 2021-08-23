@@ -1,5 +1,6 @@
 export const colors = {
   darkTranslucent: "hsla(195, 48%, 11%, 0.9)",
+  headerBg: "hsla(205, 36%, 20%, 0.65)",
   highlight: "#1cffe4",
   lightTranslucent: "hsla(0, 0%, 100%, 0.5)",
   textLight: "#eee",
