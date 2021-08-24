@@ -14,7 +14,7 @@ export function useRevealHeading() {
       linesClass: "overflow-hidden",
     });
 
-    gsap.set(split.chars, { yPercent: 100 });
+    gsap.set(split.chars, { yPercent: 100, visibility: "visible" });
 
     gsap
       .to(split.chars, {
@@ -22,12 +22,11 @@ export function useRevealHeading() {
         stagger: {
           amount: 0.4,
         },
-        duration: 0.8,
+        duration: 0.6,
         delay: 0.5,
         ease: "power1.out",
       })
       .then(() => {
-        split.revert();
         styleTag.remove();
       });
   }, []);
