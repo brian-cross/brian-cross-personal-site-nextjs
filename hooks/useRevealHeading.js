@@ -1,10 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap, { SplitText } from "../gsap";
 
 export function useRevealHeading() {
   const ref = useRef();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const styleTag = document.createElement("style");
     styleTag.innerText = ".overflow-hidden {overflow: hidden};";
     document.head.appendChild(styleTag);
@@ -14,21 +14,21 @@ export function useRevealHeading() {
       linesClass: "overflow-hidden",
     });
 
-    gsap.set(split.chars, { yPercent: 100, visibility: "visible" });
+    gsap.set(split.chars, { yPercent: 100 });
 
-    gsap
-      .to(split.chars, {
-        yPercent: 0,
-        stagger: {
-          amount: 0.4,
-        },
-        duration: 0.6,
-        delay: 0.5,
-        ease: "power1.out",
-      })
-      .then(() => {
-        styleTag.remove();
-      });
+    gsap.to(split.chars, {
+      yPercent: 0,
+      stagger: {
+        amount: 0.4,
+      },
+      duration: 0.6,
+      delay: 0.5,
+      ease: "power1.out",
+    });
+
+    return () => {
+      styleTag.remove();
+    };
   }, []);
 
   return ref;

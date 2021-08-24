@@ -6,11 +6,6 @@ export default function H1({ children }) {
   return (
     <>
       <h1 ref={ref}>{children}</h1>
-      <style jsx>{`
-        h1 {
-          visibility: hidden;
-        }
-      `}</style>
     </>
   );
 }
