@@ -74,7 +74,7 @@ const globalStyles = css.global`
   }
 
   h1,
-  .h1 {
+  .nav-link {
     font-weight: 300;
     font-size: ${font.size.large};
     text-transform: uppercase;

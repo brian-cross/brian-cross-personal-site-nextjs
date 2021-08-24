@@ -12,22 +12,22 @@ export default function NavMenu({ onClick }) {
               <ul>
                 <li>
                   <Link href="/">
-                    <a className="h1">Home</a>
+                    <a className="nav-link">Home</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/about">
-                    <a className="h1">About</a>
+                    <a className="nav-link">About</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/contact">
-                    <a className="h1">Contact</a>
+                    <a className="nav-link">Contact</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/services">
-                    <a className="h1">Services</a>
+                    <a className="nav-link">Services</a>
                   </Link>
                 </li>
               </ul>
