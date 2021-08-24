@@ -1,15 +1,15 @@
 import Link from "next/link";
-import { useSmoothScroll, useSlidingHeader, useRevealHeading } from "../hooks";
+import H1 from "../components/H1";
+import { useSmoothScroll, useSlidingHeader } from "../hooks";
 
 export default function About() {
   useSmoothScroll();
   useSlidingHeader();
-  const headingRef = useRevealHeading();
 
   return (
     <main className="container">
       <div className="content">
-        <h1 ref={headingRef}>About Me</h1>
+        <H1>About Me</H1>
         <h2>Hi, I'm Brian</h2>
         <div className="text-block large">
           <h3>What do I offer?</h3>

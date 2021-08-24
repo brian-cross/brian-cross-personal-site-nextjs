@@ -1,14 +1,14 @@
-import { useSlidingHeader, useSmoothScroll, useRevealHeading } from "../hooks";
+import H1 from "../components/H1";
+import { useSlidingHeader, useSmoothScroll } from "../hooks";
 
 export default function Services() {
   useSmoothScroll();
   useSlidingHeader();
-  const headingRef = useRevealHeading();
 
   return (
     <main className="container">
       <div className="content">
-        <h1 ref={headingRef}>Services</h1>
+        <H1>Services</H1>
         <h2>Building digital experiences</h2>
         <div className="text-block large">
           <h3>Design</h3>
