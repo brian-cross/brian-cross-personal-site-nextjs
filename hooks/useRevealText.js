@@ -24,9 +24,7 @@ export function useRevealText(type = "chars") {
 
     gsap.to(split[type], {
       yPercent: 0,
-      stagger: {
-        amount: 0.3,
-      },
+      stagger: 0.05,
       duration: 0.6,
       ease: "power1.out",
     });
