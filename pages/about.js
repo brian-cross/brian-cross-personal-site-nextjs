@@ -11,7 +11,7 @@ export default function About() {
     <main className="container">
       <div className="content">
         <H1>About Me</H1>
-        <h2>Hi, I'm Brian</h2>
+        <H2>Hi, I'm Brian</H2>
         <div className="text-block large">
           <h3>What do I offer?</h3>
           <p>
