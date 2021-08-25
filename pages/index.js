@@ -1,5 +1,6 @@
 import Link from "next/link";
 import H1 from "../components/H1";
+import H2 from "../components/H2";
 import { colors } from "../styles/theme";
 import { useSlidingHeader, useSmoothScroll } from "../hooks";
 
@@ -14,11 +15,11 @@ export default function Home() {
           <span className="bold-highlight">Brian</span>{" "}
           <span className="shift-left">Cross</span>
         </H1>
-        <h2>
+        <H2>
           Web Developer
           <br />
           Edmonton Alberta Canada
-        </h2>
+        </H2>
         <p className="text-block">
           I build fast, secure, accessible websites for businesses and
           individuals.

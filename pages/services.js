@@ -1,4 +1,5 @@
 import H1 from "../components/H1";
+import H2 from "../components/H2";
 import { useSlidingHeader, useSmoothScroll } from "../hooks";
 
 export default function Services() {
@@ -9,7 +10,7 @@ export default function Services() {
     <main className="container">
       <div className="content">
         <H1>Services</H1>
-        <h2>Building digital experiences</h2>
+        <H2>Building digital experiences</H2>
         <div className="text-block large">
           <h3>Design</h3>
           <p>

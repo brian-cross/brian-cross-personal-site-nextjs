@@ -1,4 +1,5 @@
 import H1 from "../components/H1";
+import H2 from "../components/H2";
 import { useSlidingHeader, useSmoothScroll } from "../hooks";
 
 export default function Contact() {
@@ -14,7 +15,7 @@ export default function Contact() {
     <main className="container">
       <div className="content">
         <H1>Contact Me</H1>
-        <h2>Let's discuss your project</h2>
+        <H2>Let's discuss your project</H2>
         <div className="text-block">
           <p>
             What would you like to build? Send me a message and I'll get back to

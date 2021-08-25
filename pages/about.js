@@ -1,5 +1,6 @@
 import Link from "next/link";
 import H1 from "../components/H1";
+import H2 from "../components/H2";
 import { useSmoothScroll, useSlidingHeader } from "../hooks";
 
 export default function About() {
