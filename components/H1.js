@@ -1,7 +1,7 @@
-import { useRevealHeading } from "../hooks";
+import { useRevealText } from "../hooks";
 
 export default function H1({ children }) {
-  const ref = useRevealHeading();
+  const ref = useRevealText();
 
   return (
     <>
