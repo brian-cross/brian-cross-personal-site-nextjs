@@ -2,20 +2,22 @@ import Link from "next/link";
 import H1 from "../components/H1";
 import H2 from "../components/H2";
 import { colors } from "../styles/theme";
-import { useSlidingHeader, useSmoothScroll } from "../hooks";
+import { useSlidingHeader, useSmoothScroll, useTimeline } from "../hooks";
 
 export default function Home() {
   useSmoothScroll();
   useSlidingHeader();
 
+  const tl = useTimeline();
+
   return (
     <main className="container">
       <div className="content">
-        <H1>
+        <H1 tl={tl}>
           <span className="bold-highlight">Brian</span>{" "}
           <span className="shift-left">Cross</span>
         </H1>
-        <H2>
+        <H2 tl={tl}>
           Web Developer
           <br />
           Edmonton Alberta Canada

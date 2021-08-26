@@ -1,17 +1,19 @@
 import Link from "next/link";
 import H1 from "../components/H1";
 import H2 from "../components/H2";
-import { useSmoothScroll, useSlidingHeader } from "../hooks";
+import { useSmoothScroll, useSlidingHeader, useTimeline } from "../hooks";
 
 export default function About() {
   useSmoothScroll();
   useSlidingHeader();
 
+  const tl = useTimeline();
+
   return (
     <main className="container">
       <div className="content">
-        <H1>About Me</H1>
-        <H2>Hi, I'm Brian</H2>
+        <H1 tl={tl}>About Me</H1>
+        <H2 tl={tl}>Hi, I'm Brian</H2>
         <div className="text-block large">
           <h3>What do I offer?</h3>
           <p>

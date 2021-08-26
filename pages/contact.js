@@ -1,10 +1,12 @@
 import H1 from "../components/H1";
 import H2 from "../components/H2";
-import { useSlidingHeader, useSmoothScroll } from "../hooks";
+import { useSlidingHeader, useSmoothScroll, useTimeline } from "../hooks";
 
 export default function Contact() {
   useSmoothScroll();
   useSlidingHeader();
+
+  const tl = useTimeline();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,8 +16,8 @@ export default function Contact() {
   return (
     <main className="container">
       <div className="content">
-        <H1>Contact Me</H1>
-        <H2>Let's discuss your project</H2>
+        <H1 tl={tl}>Contact Me</H1>
+        <H2 tl={tl}>Let's discuss your project</H2>
         <div className="text-block">
           <p>
             What would you like to build? Send me a message and I'll get back to

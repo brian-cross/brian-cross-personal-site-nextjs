@@ -1,16 +1,18 @@
 import H1 from "../components/H1";
 import H2 from "../components/H2";
-import { useSlidingHeader, useSmoothScroll } from "../hooks";
+import { useSlidingHeader, useSmoothScroll, useTimeline } from "../hooks";
 
 export default function Services() {
   useSmoothScroll();
   useSlidingHeader();
 
+  const tl = useTimeline();
+
   return (
     <main className="container">
       <div className="content">
-        <H1>Services</H1>
-        <H2>Building digital experiences</H2>
+        <H1 tl={tl}>Services</H1>
+        <H2 tl={tl}>Building digital experiences</H2>
         <div className="text-block large">
           <h3>Design</h3>
           <p>

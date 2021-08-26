@@ -1,7 +1,8 @@
-import { useRevealText } from "../hooks";
+import { useRevealText, useTimelineAdd } from "../hooks";
 
-export default function H2({ children }) {
-  const ref = useRevealText("words");
+export default function H2({ children, tl }) {
+  const [ref, tween] = useRevealText("words");
+  useTimelineAdd(tl, tween, "<50%");
 
   return (
     <>

@@ -1,8 +1,9 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import gsap, { SplitText } from "../gsap";
 
 export function useRevealText(type = "chars") {
   const ref = useRef();
+  const [tween, setTween] = useState();
 
   useLayoutEffect(() => {
     const linesClass = "overflow-hidden";
@@ -22,17 +23,19 @@ export function useRevealText(type = "chars") {
 
     gsap.set(split[type], { yPercent: 100 });
 
-    gsap.to(split[type], {
-      yPercent: 0,
-      stagger: 0.05,
-      duration: 0.6,
-      ease: "power1.out",
-    });
+    setTween(
+      gsap.to(split[type], {
+        yPercent: 0,
+        stagger: 0.05,
+        duration: 0.6,
+        ease: "power1.out",
+      })
+    );
 
     return () => {
       if (styleTag) styleTag.remove();
     };
   }, []);
 
-  return ref;
+  return [ref, tween];
 }
