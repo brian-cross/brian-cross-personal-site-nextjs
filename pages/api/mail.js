@@ -9,7 +9,7 @@ AWS.config.update({
 });
 
 export default async function mail(req, res) {
-  const { name, company, email, description } = JSON.parse(req.body);
+  const { name, email, phone, description } = JSON.parse(req.body);
 
   const params = {
     Destination: {
@@ -19,28 +19,26 @@ export default async function mail(req, res) {
       Body: {
         Text: {
           Charset: "UTF-8",
-          Data: `Name: ${name}\nCompany: ${company}\nEmail: ${email}\nMessage: ${description}`,
+          Data: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${description}`,
         },
       },
       Subject: {
         Charset: "UTF-8",
-        Data: "Contact Form Inquiry",
+        Data: "Contact Form Inquiry - briancross.ca",
       },
     },
-    Source: `Brian Cross <${process.env.CONTACT_FORM_SOURCE_ADDRESS}>`,
-    ReplyToAddresses: [process.env.CONTACT_FORM_REPLY_TO_ADDRESS],
+    Source: `Contact Form Inquiry - briancross.ca <${process.env.CONTACT_FORM_SOURCE_ADDRESS}>`,
+    ReplyToAddresses: [email],
   };
 
-  return res.status(200).json(JSON.stringify(params));
+  const sendPromise = new AWS.SES({ apiVersion: "2010-12-01" })
+    .sendEmail(params)
+    .promise();
 
-  // const sendPromise = new AWS.SES({ apiVersion: "2010-12-01" })
-  //   .sendEmail(params)
-  //   .promise();
-
-  // try {
-  //   const data = await sendPromise;
-  //   return res.status(200).json({ messageId: data.MessageId });
-  // } catch (err) {
-  //   return res.status(500).json({ error: err });
-  // }
+  try {
+    const data = await sendPromise;
+    return res.status(200).json({ messageId: data.MessageId });
+  } catch (err) {
+    return res.status(500).json({ error: err });
+  }
 }
