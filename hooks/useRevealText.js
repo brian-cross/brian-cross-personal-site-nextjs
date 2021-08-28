@@ -21,7 +21,7 @@ export function useRevealText(type = "chars") {
       linesClass,
     });
 
-    gsap.set(split[type], { yPercent: 100 });
+    gsap.set(split[type], { yPercent: 110 });
 
     setTween(
       gsap.to(split[type], {
