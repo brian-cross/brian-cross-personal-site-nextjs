@@ -1,11 +1,11 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap, { SplitText } from "../gsap";
 
 export function useRevealText(type = "chars") {
   const ref = useRef();
   const [tween, setTween] = useState();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const linesClass = "overflow-hidden";
     let styleTag;
 
@@ -22,6 +22,7 @@ export function useRevealText(type = "chars") {
     });
 
     gsap.set(split[type], { yPercent: 110 });
+    gsap.set(ref.current, { autoAlpha: 1 });
 
     setTween(
       gsap.to(split[type], {

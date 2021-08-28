@@ -6,7 +6,9 @@ export default function H1Reveal({ children, tl }) {
 
   return (
     <>
-      <h1 ref={ref}>{children}</h1>
+      <h1 ref={ref} style={{ visibility: "hidden" }}>
+        {children}
+      </h1>
     </>
   );
 }

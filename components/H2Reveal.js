@@ -6,7 +6,9 @@ export default function H2Reveal({ children, tl }) {
 
   return (
     <>
-      <h2 ref={ref}>{children}</h2>
+      <h2 ref={ref} style={{ visibility: "hidden" }}>
+        {children}
+      </h2>
     </>
   );
 }
