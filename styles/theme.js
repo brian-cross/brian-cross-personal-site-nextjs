@@ -4,6 +4,7 @@ export const colors = {
   highlight: "#1cffe4",
   lightTranslucent: "hsla(0, 0%, 100%, 0.5)",
   textLight: "#eee",
+  error: "hsla(12, 70%, 50%, 0.8)",
 };
 
 export const sizes = {
