@@ -1,40 +1,37 @@
 import Link from "next/link";
 import { sizes } from "../styles/theme";
-import Portal from "./Portal";
 
 export default function NavMenu({ onClick }) {
   return (
     <>
-      <Portal selector="#modal-root">
-        <div className="nav-menu">
-          <div className="container">
-            <nav onClick={onClick}>
-              <ul>
-                <li>
-                  <Link href="/">
-                    <a className="nav-link">Home</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about">
-                    <a className="nav-link">About</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact">
-                    <a className="nav-link">Contact</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services">
-                    <a className="nav-link">Services</a>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+      <nav className="nav-menu">
+        <div className="container">
+          <div onClick={onClick}>
+            <ul>
+              <li>
+                <Link href="/">
+                  <a className="nav-link">Home</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/about">
+                  <a className="nav-link">About</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact">
+                  <a className="nav-link">Contact</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/services">
+                  <a className="nav-link">Services</a>
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
-      </Portal>
+      </nav>
       <style jsx>{`
         .nav-menu {
           position: fixed;
