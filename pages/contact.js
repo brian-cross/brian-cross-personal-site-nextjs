@@ -8,6 +8,7 @@ import { colors } from "../styles/theme";
 
 export default function Contact() {
   const [submitState, setSubmitState] = useState("initial");
+
   const [errors, setErrors] = useState({
     name: "",
     email: "",
