@@ -2,10 +2,12 @@ import { useState } from "react";
 import FadeIn from "../components/FadeIn";
 import H1Reveal from "../components/H1Reveal";
 import H2Reveal from "../components/H2Reveal";
+import SubmitFormModal from "../components/SubmitFormModal";
 import { useSlidingHeader, useSmoothScroll, useTimeline } from "../hooks";
 import { colors } from "../styles/theme";
 
 export default function Contact() {
+  const [submitState, setSubmitState] = useState("initial");
   const [errors, setErrors] = useState({
     name: "",
     email: "",
@@ -35,16 +37,25 @@ export default function Contact() {
 
     if (validationError(validationResult)) return;
 
+    setSubmitState("loading");
+
     fetch("/api/mail", {
       method: "POST",
       body: JSON.stringify(rawData),
     })
-      .then(res => res.json())
+      .then(res => {
+        if (res.ok) return res.json();
+        throw new Error(`HTTP status code: ${res.status}`);
+      })
       .then(data => {
         console.log(data);
         e.target.reset();
+        setSubmitState("success");
       })
-      .catch(console.error);
+      .catch(error => {
+        console.error(error);
+        setSubmitState("failure");
+      });
   }
 
   function validateName(name) {
@@ -155,6 +166,10 @@ export default function Contact() {
           </FadeIn>
         </div>
       </main>
+      <SubmitFormModal
+        state={submitState}
+        onClose={() => setSubmitState("initial")}
+      />
       <style jsx>{`
         input,
         textarea {
