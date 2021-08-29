@@ -56,7 +56,9 @@ export default function SubmitFormModal({ state, onClose }) {
             <div className="title">{modalText.title}</div>
             <div className="subtitle">{modalText.subtitle}</div>
             {state === "success" || state === "failure" ? (
-              <button onClick={onClose}>&times;</button>
+              <button aria-label="Close" onClick={onClose}>
+                &times;
+              </button>
             ) : null}
           </div>
         </div>
