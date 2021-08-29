@@ -82,13 +82,16 @@ export default function SubmitFormSpinner({ state }) {
         svg {
           height: 9rem;
         }
+
         path {
           visibility: hidden;
           stroke: currentColor;
         }
+
         #checkmark {
           stroke: greenyellow;
         }
+
         #x-1,
         #x-2 {
           stroke: orangered;
