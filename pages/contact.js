@@ -6,7 +6,11 @@ import { useSlidingHeader, useSmoothScroll, useTimeline } from "../hooks";
 import { colors } from "../styles/theme";
 
 export default function Contact() {
-  const [emailValid, setEmailValid] = useState(true);
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    description: "",
+  });
 
   useSmoothScroll();
   useSlidingHeader();
@@ -19,7 +23,17 @@ export default function Contact() {
     const formData = new FormData(e.target);
     const rawData = Object.fromEntries(formData.entries());
 
-    setEmailValid(isValidEmail(rawData.email));
+    const { name, email, description } = rawData;
+
+    const validationResult = {
+      name: validateName(name),
+      email: validateEmail(email),
+      description: validateDescription(description),
+    };
+
+    setErrors(validationResult);
+
+    if (validationError(validationResult)) return;
 
     fetch("/api/mail", {
       method: "POST",
@@ -33,8 +47,32 @@ export default function Contact() {
       .catch(console.error);
   }
 
+  function validateName(name) {
+    if (name.length === 0) return "Name field is required";
+    return "";
+  }
+
+  function validateEmail(email) {
+    if (email.length === 0) return "Email address is required";
+    if (!isValidEmail(email)) return "Invalid email address";
+    return "";
+  }
+
+  function validateDescription(description) {
+    if (description.length === 0) return "Project info is required";
+    return "";
+  }
+
   function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function validationError(result) {
+    for (const error of Object.values(result)) {
+      if (error) return true;
+    }
+
+    return false;
   }
 
   return (
@@ -52,37 +90,59 @@ export default function Contact() {
             </div>
             <form className="contact-form" onSubmit={handleSubmit} noValidate>
               <div className="label">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Name *</label>
               </div>
               <div className="input">
-                <input type="text" name="name" id="name" />
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  onChange={() => setErrors(prev => ({ ...prev, name: "" }))}
+                />
               </div>
               <div className="label">
-                <label htmlFor="email">Email Address</label>
+                <label htmlFor="email">Email Address *</label>
               </div>
               <div className="input">
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  onChange={() => setEmailValid(true)}
+                  onChange={() => setErrors(prev => ({ ...prev, email: "" }))}
                 />
               </div>
               <div className="label">
-                <label htmlFor="phone">Phone Number (optional)</label>
+                <label htmlFor="phone">Phone Number / Extension</label>
               </div>
               <div className="input">
                 <input type="tel" name="phone" id="phone" />
               </div>
               <div className="label">
-                <label htmlFor="description">Tell me about your project</label>
+                <label htmlFor="company">Company Name</label>
+              </div>
+              <div className="input">
+                <input type="text" name="company" id="company" />
+              </div>
+              <div className="label">
+                <label htmlFor="url">Website URL</label>
+              </div>
+              <div className="input">
+                <input type="url" name="url" id="url" />
+              </div>
+              <div className="label">
+                <label htmlFor="description">
+                  Tell me about your project *
+                </label>
               </div>
               <div className="input">
                 <textarea
                   name="description"
                   id="description"
                   cols="50"
-                  rows="4"
+                  rows="8"
+                  onChange={() =>
+                    setErrors(prev => ({ ...prev, description: "" }))
+                  }
                 ></textarea>
               </div>
               <div className="input">
@@ -90,17 +150,31 @@ export default function Contact() {
                   Send Message
                 </button>
               </div>
+              <p>* required</p>
             </form>
           </FadeIn>
         </div>
       </main>
       <style jsx>{`
-        input {
-          transition: background-color 0.15s linear;
+        input,
+        textarea {
+          transition: border-color 0.1s linear;
 
           &#email {
-            background-color: ${emailValid
-              ? colors.darkTranslucent
+            border-color: ${errors.email.length === 0
+              ? colors.lightTranslucent
+              : colors.error};
+          }
+
+          &#name {
+            border-color: ${errors.name.length === 0
+              ? colors.lightTranslucent
+              : colors.error};
+          }
+
+          &#description {
+            border-color: ${errors.description.length === 0
+              ? colors.lightTranslucent
               : colors.error};
           }
         }

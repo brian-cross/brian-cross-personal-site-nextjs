@@ -9,7 +9,9 @@ AWS.config.update({
 });
 
 export default async function mail(req, res) {
-  const { name, email, phone, description } = JSON.parse(req.body);
+  const { name, email, phone, company, url, description } = JSON.parse(
+    req.body
+  );
 
   const params = {
     Destination: {
@@ -19,7 +21,7 @@ export default async function mail(req, res) {
       Body: {
         Text: {
           Charset: "UTF-8",
-          Data: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${description}`,
+          Data: `Name: ${name}\n\nEmail: ${email}\n\nPhone: ${phone}\n\nCompany: ${company}\n\nURL: ${url}\n\nMessage: ${description}`,
         },
       },
       Subject: {
@@ -27,7 +29,7 @@ export default async function mail(req, res) {
         Data: "Contact Form Inquiry - briancross.ca",
       },
     },
-    Source: `Contact Form Inquiry - briancross.ca <${process.env.CONTACT_FORM_SOURCE_ADDRESS}>`,
+    Source: `<${process.env.CONTACT_FORM_SOURCE_ADDRESS}>`,
     ReplyToAddresses: [email],
   };
 
