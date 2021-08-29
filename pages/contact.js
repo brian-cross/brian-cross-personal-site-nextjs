@@ -46,7 +46,7 @@ export default function Contact() {
     })
       .then(res => {
         if (res.ok) return res.json();
-        throw new Error(`HTTP status code: ${res.status}`);
+        throw Error(res.statusText);
       })
       .then(data => {
         console.log(data);
