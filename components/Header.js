@@ -62,7 +62,7 @@ export default function Header() {
                 <path className="bar" d="M 10 40 H 70" />
               </svg>
             </button>
-            {navOpen ? <NavMenu onClick={handleNav} /> : null}
+            <NavMenu navOpen={navOpen} onClick={handleNav} />
           </div>
         </div>
       </header>
