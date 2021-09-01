@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { sizes } from "../styles/theme";
 import { useTimeline } from "../hooks/useTimeline";
+import NavLink from "./NavLink";
 
 export default function NavMenu({ navOpen, onClick }) {
   const navRef = useRef();
@@ -46,24 +46,16 @@ export default function NavMenu({ navOpen, onClick }) {
         <div className="container">
           <ul onClick={onClick}>
             <li>
-              <Link href="/">
-                <a className="nav-link">Home</a>
-              </Link>
+              <NavLink href="/">Home</NavLink>
             </li>
             <li>
-              <Link href="/about">
-                <a className="nav-link">About</a>
-              </Link>
+              <NavLink href="/about">About</NavLink>
             </li>
             <li>
-              <Link href="/contact">
-                <a className="nav-link">Contact</a>
-              </Link>
+              <NavLink href="/contact">Contact</NavLink>
             </li>
             <li>
-              <Link href="/services">
-                <a className="nav-link">Services</a>
-              </Link>
+              <NavLink href="/services">Services</NavLink>
             </li>
           </ul>
         </div>
@@ -91,12 +83,6 @@ export default function NavMenu({ navOpen, onClick }) {
 
         .container {
           z-index: 1;
-        }
-
-        a {
-          display: inline-block;
-          margin: 0.75em 0;
-          text-decoration: none;
         }
       `}</style>
     </>
