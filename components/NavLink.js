@@ -68,9 +68,9 @@ export default function NavLink({ children, href, navOpen }) {
         .slider {
           visibility: hidden;
           position: absolute;
-          height: ${sliderDims?.height}px;
-          width: ${sliderDims?.width}px;
-          top: ${sliderDims?.top};
+          height: ${sliderDims && sliderDims.height}px;
+          width: ${sliderDims && sliderDims.width}px;
+          top: ${sliderDims && sliderDims.top};
           right: 0;
           background-color: currentColor;
         }
