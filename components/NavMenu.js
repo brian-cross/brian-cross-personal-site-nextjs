@@ -46,16 +46,24 @@ export default function NavMenu({ navOpen, onClick }) {
         <div className="container">
           <ul onClick={onClick}>
             <li>
-              <NavLink href="/">Home</NavLink>
+              <NavLink href="/" navOpen={navOpen}>
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink href="/about">About</NavLink>
+              <NavLink href="/about" navOpen={navOpen}>
+                About
+              </NavLink>
             </li>
             <li>
-              <NavLink href="/contact">Contact</NavLink>
+              <NavLink href="/contact" navOpen={navOpen}>
+                Contact
+              </NavLink>
             </li>
             <li>
-              <NavLink href="/services">Services</NavLink>
+              <NavLink href="/services" navOpen={navOpen}>
+                Services
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -83,6 +91,10 @@ export default function NavMenu({ navOpen, onClick }) {
 
         .container {
           z-index: 1;
+        }
+
+        li {
+          position: relative;
         }
       `}</style>
     </>
