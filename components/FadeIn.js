@@ -7,7 +7,7 @@ export default function FadeIn({ children, tl }) {
   useEffect(() => {
     if (tl === undefined) return;
     gsap.set(ref.current, { y: "-1rem" });
-    tl.to(ref.current, { autoAlpha: 1, y: 0, duration: 0.8 }, "<80%");
+    tl.to(ref.current, { autoAlpha: 1, y: 0, duration: 0.8 }, 1);
   }, [tl]);
 
   return (
