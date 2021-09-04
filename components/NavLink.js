@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "../gsap";
 import { useTimeline } from "../hooks/useTimeline";
 
-export default function NavLink({ children, href, navOpen }) {
+export default function NavLink({ children, href, navOpen, onClick }) {
+  const disableHover = useRef(false);
   const linkRef = useRef();
   const sliderRef = useRef();
   const [sliderDims, setSliderDims] = useState();
@@ -59,7 +60,19 @@ export default function NavLink({ children, href, navOpen }) {
     }
   }, [navOpen, tl]);
 
+  function handleTouchEnd() {
+    disableHover.current = true;
+    onClick();
+  }
+
+  function handleClick() {
+    if (disableHover.current) return;
+    onClick();
+  }
+
   function handleMouseOver() {
+    if (disableHover.current) return;
+
     gsap.to(sliderRef.current, {
       scaleX: 1,
       duration: 0.3,
@@ -73,6 +86,11 @@ export default function NavLink({ children, href, navOpen }) {
   }
 
   function handleMouseOut() {
+    if (disableHover.current) {
+      disableHover.current = false;
+      return;
+    }
+
     gsap.to(sliderRef.current, {
       scaleX: 0,
       duration: 0.3,
@@ -92,6 +110,8 @@ export default function NavLink({ children, href, navOpen }) {
         <a
           className="nav-link"
           ref={linkRef}
+          onTouchEnd={handleTouchEnd}
+          onClick={handleClick}
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >

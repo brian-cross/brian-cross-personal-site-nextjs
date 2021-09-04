@@ -44,24 +44,24 @@ export default function NavMenu({ navOpen, onClick }) {
           ref={sliderRef}
         ></div>
         <div className="container">
-          <ul onClick={onClick}>
+          <ul>
             <li>
-              <NavLink href="/" navOpen={navOpen}>
+              <NavLink href="/" navOpen={navOpen} onClick={onClick}>
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink href="/about" navOpen={navOpen}>
+              <NavLink href="/about" navOpen={navOpen} onClick={onClick}>
                 About
               </NavLink>
             </li>
             <li>
-              <NavLink href="/contact" navOpen={navOpen}>
+              <NavLink href="/contact" navOpen={navOpen} onClick={onClick}>
                 Contact
               </NavLink>
             </li>
             <li>
-              <NavLink href="/services" navOpen={navOpen}>
+              <NavLink href="/services" navOpen={navOpen} onClick={onClick}>
                 Services
               </NavLink>
             </li>
