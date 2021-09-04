@@ -9,29 +9,33 @@ export function useRevealText(type = "chars") {
     const linesClass = "overflow-hidden";
     let styleTag;
 
-    if (!document.getElementById(linesClass)) {
-      styleTag = document.createElement("style");
-      styleTag.id = linesClass;
-      styleTag.innerText = `.${linesClass} {overflow: hidden};`;
-      document.head.appendChild(styleTag);
-    }
+    document.fonts.ready.then(() => {
+      if (!document.getElementById(linesClass)) {
+        styleTag = document.createElement("style");
+        styleTag.id = linesClass;
+        styleTag.innerText = `.${linesClass} {overflow: hidden};`;
+        document.head.appendChild(styleTag);
+      }
 
-    const split = new SplitText(ref.current, {
-      type: `${type}, lines`,
-      linesClass,
+      const split = new SplitText(ref.current, {
+        type: `${type}, lines`,
+        linesClass,
+      });
+
+      gsap.set(split[type], { yPercent: 110 });
+      gsap.set(ref.current, { autoAlpha: 1 });
+
+      setTween(
+        gsap
+          .to(split[type], {
+            yPercent: 0,
+            stagger: 0.05,
+            duration: 0.6,
+            ease: "power1.out",
+          })
+          .then(() => split.revert())
+      );
     });
-
-    gsap.set(split[type], { yPercent: 110 });
-    gsap.set(ref.current, { autoAlpha: 1 });
-
-    setTween(
-      gsap.to(split[type], {
-        yPercent: 0,
-        stagger: 0.05,
-        duration: 0.6,
-        ease: "power1.out",
-      })
-    );
 
     return () => {
       if (styleTag) styleTag.remove();

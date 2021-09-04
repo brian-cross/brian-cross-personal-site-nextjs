@@ -10,9 +10,11 @@ export default function NavLink({ children, href, navOpen }) {
   const tl = useTimeline();
 
   useEffect(() => {
-    const { width, height } = linkRef.current.getBoundingClientRect();
-    const top = getComputedStyle(linkRef.current).marginTop;
-    setSliderDims({ width, height, top });
+    document.fonts.ready.then(() => {
+      const { width, height } = linkRef.current.getBoundingClientRect();
+      const top = getComputedStyle(linkRef.current).marginTop;
+      setSliderDims({ width, height, top });
+    });
   }, []);
 
   useEffect(() => {
