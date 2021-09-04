@@ -9,6 +9,9 @@ const globalStyles = css.global`
   html {
     font-size: ${font.size.base};
 
+    // Prevent shift when calling SplitText revert()
+    font-kerning: none;
+
     @media (min-width: 2300px) {
       font-size: 24px;
     }
