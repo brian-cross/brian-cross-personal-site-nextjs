@@ -201,6 +201,10 @@ const globalStyles = css.global`
   ::-webkit-scrollbar {
     display: none;
   }
+
+  .c-scrollbar {
+    z-index: 1;
+  }
 `;
 
 export default globalStyles;
