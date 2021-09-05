@@ -105,7 +105,7 @@ export default function NavLink({ children, href, navOpen, onClick }) {
 
   return (
     <>
-      <div className="slider" ref={sliderRef}></div>
+      <div className="slider" aria-hidden="true" ref={sliderRef}></div>
       <Link href={href}>
         <a
           className="nav-link"
