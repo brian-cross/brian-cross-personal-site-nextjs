@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { colors, sizes } from "../styles/theme";
+import Burger from "./Burger";
 import NavMenu from "./NavMenu";
 
 export default function Header() {
@@ -45,23 +46,7 @@ export default function Header() {
                 </div>
               </a>
             </Link>
-            <button
-              className="btn burger"
-              aria-label="Navigation Menu"
-              onClick={handleNav}
-            >
-              <svg
-                version="1.1"
-                viewBox="0 0 80 50"
-                xmlns="http://www.w3.org/2000/svg"
-                height="32"
-              >
-                <path className="bar" d="M 10 10 H 70" />
-                <path className="bar" d="M 10 25 H 70" />
-                <path className="bar duplicate" d="M 10 25 H 70" />
-                <path className="bar" d="M 10 40 H 70" />
-              </svg>
-            </button>
+            <Burger navOpen={navOpen} onClick={handleNav} />
             <NavMenu navOpen={navOpen} onClick={handleNav} />
           </div>
         </div>
@@ -81,35 +66,6 @@ export default function Header() {
           justify-content: space-between;
           padding: 1em 0;
           text-transform: uppercase;
-        }
-
-        .burger {
-          z-index: 1;
-          border: none;
-          padding: 0;
-          height: ${sizes.headerContentHeightSm};
-
-          &:hover {
-            // Override default button hover state
-            color: currentColor;
-          }
-
-          @media (min-width: ${sizes.mobileBreakpoint}) {
-            height: ${sizes.headerContentHeightLg};
-          }
-
-          svg {
-            height: 100%;
-          }
-
-          path {
-            stroke: currentColor;
-            stroke-width: 4px;
-          }
-
-          .duplicate {
-            visibility: hidden;
-          }
         }
 
         .logo {
