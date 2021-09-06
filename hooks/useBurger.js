@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import gsap from "../gsap";
 
-export default function useBurger(navOpen) {
+export function useBurger(navOpen) {
   const defaults = {
     duration: 0.3,
     ease: "power3.out",

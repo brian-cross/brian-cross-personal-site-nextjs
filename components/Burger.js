@@ -1,4 +1,4 @@
-import useBurger from "../hooks/useBurger";
+import { useBurger } from "../hooks";
 import { sizes } from "../styles/theme";
 
 export default function Burger({ navOpen, onClick }) {
