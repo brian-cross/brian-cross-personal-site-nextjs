@@ -3,7 +3,7 @@ import { sizes } from "../styles/theme";
 import { useTimeline } from "../hooks/useTimeline";
 import NavLink from "./NavLink";
 
-export default function NavMenu({ navOpen, onClick }) {
+export default function NavMenu({ navOpen, onClick, onTransitionEnd }) {
   const navRef = useRef();
   const sliderRef = useRef();
 
@@ -23,15 +23,18 @@ export default function NavMenu({ navOpen, onClick }) {
           scaleX: 1,
           duration: 1,
           ease: "power3.out",
-        });
+        })
+        .then(onTransitionEnd);
     } else {
       tl.to(sliderRef.current, {
         scaleX: 0,
         duration: 1,
         ease: "power3.out",
-      }).set(navRef.current, {
-        autoAlpha: 0,
-      });
+      })
+        .set(navRef.current, {
+          autoAlpha: 0,
+        })
+        .then(onTransitionEnd);
     }
   }, [navOpen, tl]);
 

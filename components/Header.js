@@ -6,8 +6,14 @@ import NavMenu from "./NavMenu";
 
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   function handleNav() {
+    // Ignore clicks on burger icon if menu is animating open or closed
+    if (isTransitioning) return;
+
+    setIsTransitioning(true);
+
     setNavOpen(prev => {
       // Prevent mobile browser from scrolling when menu is open
       prev
@@ -16,6 +22,10 @@ export default function Header() {
 
       return !prev;
     });
+  }
+
+  function handleTransitionEnd() {
+    setIsTransitioning(false);
   }
 
   return (
@@ -47,7 +57,11 @@ export default function Header() {
               </a>
             </Link>
             <Burger navOpen={navOpen} onClick={handleNav} />
-            <NavMenu navOpen={navOpen} onClick={handleNav} />
+            <NavMenu
+              navOpen={navOpen}
+              onClick={handleNav}
+              onTransitionEnd={handleTransitionEnd}
+            />
           </div>
         </div>
       </header>
