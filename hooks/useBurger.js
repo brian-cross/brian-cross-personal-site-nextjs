@@ -8,7 +8,7 @@ export default function useBurger(navOpen) {
   };
 
   useEffect(() => {
-    gsap.set(["path.bar"], { transformOrigin: "center" });
+    gsap.set("path.bar", { transformOrigin: "center" });
   }, []);
 
   useEffect(() => {
