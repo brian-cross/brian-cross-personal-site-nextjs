@@ -16,16 +16,19 @@ export default function useBurger(navOpen) {
       gsap.set(".middle.bar.second", {
         visibility: "visible",
       });
+
       gsap.to([".top.bar", ".bottom.bar"], {
         scaleX: 0,
         ...defaults,
         duration: 0.15,
       });
+
       gsap.to(".middle.bar.first", {
         rotate: 45,
         ...defaults,
         ease: "back.out",
       });
+
       gsap.to(".middle.bar.second", {
         rotate: -45,
         ...defaults,
@@ -36,6 +39,7 @@ export default function useBurger(navOpen) {
         scaleX: 1,
         ...defaults,
       });
+
       gsap
         .to(".middle.bar", {
           rotate: 0,
