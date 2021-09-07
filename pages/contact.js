@@ -4,7 +4,7 @@ import H1Reveal from "../components/H1Reveal";
 import H2Reveal from "../components/H2Reveal";
 import SubmitFormModal from "../components/SubmitFormModal";
 import { useSlidingHeader, useSmoothScroll, useTimeline } from "../hooks";
-import { colors } from "../styles/theme";
+import { colors, sizes } from "../styles/theme";
 
 export default function Contact() {
   const [submitState, setSubmitState] = useState("initial");
@@ -111,6 +111,9 @@ export default function Contact() {
                   id="name"
                   onChange={() => setErrors(prev => ({ ...prev, name: "" }))}
                 />
+                {errors.name ? (
+                  <div className="error">{errors.name}</div>
+                ) : null}
               </div>
               <div className="label">
                 <label htmlFor="email">Email Address *</label>
@@ -122,6 +125,9 @@ export default function Contact() {
                   id="email"
                   onChange={() => setErrors(prev => ({ ...prev, email: "" }))}
                 />
+                {errors.email ? (
+                  <div className="error">{errors.email}</div>
+                ) : null}
               </div>
               <div className="label">
                 <label htmlFor="phone">Phone Number / Extension</label>
@@ -156,6 +162,9 @@ export default function Contact() {
                     setErrors(prev => ({ ...prev, description: "" }))
                   }
                 ></textarea>
+                {errors.description ? (
+                  <div className="error">{errors.description}</div>
+                ) : null}
               </div>
               <div className="input">
                 <button className="btn large" type="submit">
@@ -172,6 +181,10 @@ export default function Contact() {
         onClose={() => setSubmitState("initial")}
       />
       <style jsx>{`
+        .input {
+          position: relative;
+        }
+
         input,
         textarea {
           transition: border-color 0.1s linear;
@@ -192,6 +205,16 @@ export default function Contact() {
             border-color: ${errors.description.length === 0
               ? colors.lightTranslucent
               : colors.error};
+          }
+        }
+
+        .error {
+          position: absolute;
+          color: ${colors.error};
+          bottom: 2em;
+
+          @media (min-width: ${sizes.mobileBreakpoint}) {
+            bottom: 1em;
           }
         }
       `}</style>

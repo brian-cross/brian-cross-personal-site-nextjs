@@ -118,7 +118,7 @@ const globalStyles = css.global`
     border: 1px solid ${colors.lightTranslucent};
     width: 100%;
     margin-top: 0.5em;
-    margin-bottom: 1.75em;
+    margin-bottom: 2.75em;
     padding: 0.5em;
   }
 
