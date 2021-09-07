@@ -26,14 +26,13 @@ export function useRevealText(type = "chars") {
       gsap.set(ref.current, { autoAlpha: 1 });
 
       setTween(
-        gsap
-          .to(split[type], {
-            yPercent: 0,
-            stagger: 0.05,
-            duration: 0.6,
-            ease: "power1.out",
-          })
-          .then(() => split.revert())
+        gsap.to(split[type], {
+          yPercent: 0,
+          stagger: 0.05,
+          duration: 0.6,
+          ease: "power1.out",
+          onComplete: () => split.revert(),
+        })
       );
     });
 
