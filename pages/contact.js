@@ -37,6 +37,9 @@ export default function Contact() {
 
     if (validationError(validationResult)) return;
 
+    const focusedEl = document.activeElement;
+    focusedEl.blur();
+
     setSubmitState("loading");
 
     fetch("/api/mail", {
