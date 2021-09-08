@@ -133,7 +133,7 @@ export default function Contact() {
                 ) : null}
               </div>
               <div className="label">
-                <label htmlFor="phone">Phone Number / Extension</label>
+                <label htmlFor="phone">Phone Number</label>
               </div>
               <div className="input">
                 <input type="tel" name="phone" id="phone" />
