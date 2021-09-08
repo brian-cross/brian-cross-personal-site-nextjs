@@ -1,7 +1,6 @@
 import Link from "next/link";
 import FadeIn from "../components/FadeIn";
-import H1Reveal from "../components/H1Reveal";
-import H2Reveal from "../components/H2Reveal";
+import Heading from "../components/Heading";
 import { useSmoothScroll, useSlidingHeader, useTimeline } from "../hooks";
 
 export default function About() {
@@ -13,8 +12,12 @@ export default function About() {
   return (
     <main className="container">
       <div className="content">
-        <H1Reveal tl={tl}>About Me</H1Reveal>
-        <H2Reveal tl={tl}>Hi, I'm Brian</H2Reveal>
+        <Heading tag="h1" tl={tl}>
+          About Me
+        </Heading>
+        <Heading tag="h2" tl={tl}>
+          Hi, I'm Brian
+        </Heading>
         <FadeIn tl={tl}>
           <div className="text-block large">
             <h3>What do I offer?</h3>

@@ -1,6 +1,5 @@
 import FadeIn from "../components/FadeIn";
-import H1Reveal from "../components/H1Reveal";
-import H2Reveal from "../components/H2Reveal";
+import Heading from "../components/Heading";
 import { useSlidingHeader, useSmoothScroll, useTimeline } from "../hooks";
 
 export default function Services() {
@@ -12,8 +11,12 @@ export default function Services() {
   return (
     <main className="container">
       <div className="content">
-        <H1Reveal tl={tl}>Services</H1Reveal>
-        <H2Reveal tl={tl}>Building digital experiences</H2Reveal>
+        <Heading tag="h1" tl={tl}>
+          Services
+        </Heading>
+        <Heading tag="h2" tl={tl}>
+          Building digital experiences
+        </Heading>
         <FadeIn tl={tl}>
           <div className="text-block large">
             <h3>Design</h3>

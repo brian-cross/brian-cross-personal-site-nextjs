@@ -1,7 +1,6 @@
 import { useState } from "react";
 import FadeIn from "../components/FadeIn";
-import H1Reveal from "../components/H1Reveal";
-import H2Reveal from "../components/H2Reveal";
+import Heading from "../components/Heading";
 import SubmitFormModal from "../components/SubmitFormModal";
 import { useSlidingHeader, useSmoothScroll, useTimeline } from "../hooks";
 import { colors, sizes } from "../styles/theme";
@@ -91,8 +90,12 @@ export default function Contact() {
     <>
       <main className="container">
         <div className="content">
-          <H1Reveal tl={tl}>Contact Me</H1Reveal>
-          <H2Reveal tl={tl}>Let's discuss your project</H2Reveal>
+          <Heading tag="h1" tl={tl}>
+            Contact Me
+          </Heading>
+          <Heading tag="h2" tl={tl}>
+            Let's discuss your project
+          </Heading>
           <FadeIn tl={tl}>
             <div className="text-block">
               <p>
