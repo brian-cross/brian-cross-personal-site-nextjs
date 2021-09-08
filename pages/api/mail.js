@@ -39,7 +39,7 @@ export default async function mail(req, res) {
 
   try {
     const data = await sendPromise;
-    return res.status(200).json({ messageId: data.MessageId });
+    return res.status(201).json({ messageId: data.MessageId });
   } catch (err) {
     return res.status(500).json({ error: err });
   }
