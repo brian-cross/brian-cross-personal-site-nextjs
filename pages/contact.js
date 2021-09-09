@@ -42,9 +42,13 @@ export default function Contact() {
 
     setSubmitState("loading");
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
+
     fetch("/api/mail", {
       method: "POST",
       body: JSON.stringify(rawData),
+      signal: controller.signal,
     })
       .then(res => {
         if (res.ok) return res.json();
@@ -57,8 +61,12 @@ export default function Contact() {
       })
       .catch(error => {
         console.error(error);
+
+        if (error.name === "AbortError") return setSubmitState("timeout");
+
         setSubmitState("failure");
-      });
+      })
+      .finally(() => clearTimeout(timeoutId));
   }
 
   function validateName(name) {

@@ -42,7 +42,7 @@ export default function SubmitFormSpinner({ state }) {
       return;
     }
 
-    if (state === "success" || state === "failure") {
+    if (state === "success" || state === "failure" || state === "timeout") {
       mainTimeline.current.pause();
 
       if (state === "success") {

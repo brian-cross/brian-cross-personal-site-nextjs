@@ -4,10 +4,31 @@ import Portal from "./Portal";
 import SubmitFormSpinner from "./SubmitFormSpinner";
 
 export default function SubmitFormModal({ state, onClose }) {
-  const initialModalText = { title: "", subtitle: "" };
-
   const [modalOverlay, setModalOverlay] = useState(null);
-  const [modalText, setModalText] = useState(initialModalText);
+
+  const modalText = {
+    loading: {
+      title: "Sending message...",
+      subtitle: "",
+    },
+
+    success: {
+      title: "Message sent",
+      subtitle:
+        "Thanks for contacting me. You should hear back within 1 - 2 business days.",
+    },
+
+    failure: {
+      title: "Error sending message",
+      subtitle: "Please close this window and try again.",
+    },
+
+    timeout: {
+      title: "Timeout error",
+      subtitle:
+        "The message timed out. Please close this window and try again.",
+    },
+  };
 
   useEffect(() => {
     if (!modalOverlay) return;
@@ -20,42 +41,17 @@ export default function SubmitFormModal({ state, onClose }) {
     });
   }, [modalOverlay]);
 
-  useEffect(() => {
-    switch (state) {
-      case "loading":
-        setModalText({ title: "Sending message...", subtitle: "" });
-        break;
-
-      case "success":
-        setModalText({
-          title: "Message sent",
-          subtitle:
-            "Thanks for contacting me. You should hear back within 1 - 2 business days.",
-        });
-        break;
-
-      case "failure":
-        setModalText({
-          title: "Error sending message",
-          subtitle: "Please close this window and try again.",
-        });
-        break;
-
-      default:
-        setModalText(initialModalText);
-        break;
-    }
-  }, [state]);
-
   return state !== "initial" ? (
     <>
       <Portal selector="#modal-root">
         <div className="overlay centered" ref={setModalOverlay}>
           <div className="modal-wrapper centered">
             <SubmitFormSpinner state={state} />
-            <div className="title">{modalText.title}</div>
-            <div className="subtitle">{modalText.subtitle}</div>
-            {state === "success" || state === "failure" ? (
+            <div className="title">{modalText[state].title}</div>
+            <div className="subtitle">{modalText[state].subtitle}</div>
+            {state === "success" ||
+            state === "failure" ||
+            state === "timeout" ? (
               <button aria-label="Close" onClick={onClose}>
                 &times;
               </button>
