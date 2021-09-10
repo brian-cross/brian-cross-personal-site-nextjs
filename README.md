@@ -1,5 +1,7 @@
 # Brian Cross Personal Site
 
+## [briancross.ca](https://www.briancross.ca)
+
 Built with [Next.js](https://nextjs.org/)
 
 Animations done with [GreenSock](https://greensock.com/)
