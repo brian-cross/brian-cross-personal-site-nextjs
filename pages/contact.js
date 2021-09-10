@@ -195,6 +195,10 @@ export default function Contact() {
         onClose={() => setSubmitState("initial")}
       />
       <style jsx>{`
+        form {
+          margin-bottom: 4rem;
+        }
+
         .input {
           position: relative;
         }
