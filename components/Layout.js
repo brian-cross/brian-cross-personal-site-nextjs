@@ -19,6 +19,7 @@ export default function Layout({
           name="description"
           content="I build fast, secure, accessible websites for businesses and individuals with a focus on minimizing website load time, maximizing SEO, and optimizing accessibility."
         />
+        <meta name="twitter:card" content="summary_large_image"></meta>
         <meta property="og:url" content="https://www.briancross.ca/" />
         <meta
           property="og:title"
