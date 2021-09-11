@@ -19,6 +19,20 @@ export default function Layout({
           name="description"
           content="I build fast, secure, accessible websites for businesses and individuals with a focus on minimizing website load time, maximizing SEO, and optimizing accessibility."
         />
+        <meta property="og:url" content="https://www.briancross.ca/" />
+        <meta
+          property="og:title"
+          content="Brian Cross | Web Developer | Edmonton Alberta Canada"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="I build fast, secure, accessible websites for businesses and individuals with a focus on minimizing website load time, maximizing SEO, and optimizing accessibility."
+        />
+        <meta
+          property="og:image"
+          content="https://www.briancross.ca/images/og-img.png"
+        />
       </Head>
       <Header />
       <div id="smooth-scroll-container">
