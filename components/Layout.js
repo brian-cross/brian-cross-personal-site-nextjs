@@ -33,6 +33,8 @@ export default function Layout({
           property="og:image"
           content="https://www.briancross.ca/images/og-img.png"
         />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Head>
       <Header />
       <div id="smooth-scroll-container">
