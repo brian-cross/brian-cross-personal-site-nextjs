@@ -31,7 +31,7 @@ export default function Layout({
         />
         <meta
           property="og:image"
-          content="https://www.briancross.ca/images/og-img.png"
+          content="https://www.briancross.ca/images/open-graph/og-img.png"
         />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
