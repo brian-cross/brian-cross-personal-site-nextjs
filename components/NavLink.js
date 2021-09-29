@@ -125,6 +125,12 @@ export default function NavLink({ children, href, navOpen, onClick }) {
           display: inline-block;
           margin: 0.75em 0;
           text-decoration: none;
+
+          @media (hover: hover) {
+            &:hover {
+              color: inherit;
+            }
+          }
         }
 
         .slider {
