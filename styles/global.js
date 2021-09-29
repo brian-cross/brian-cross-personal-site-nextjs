@@ -191,9 +191,29 @@ const globalStyles = css.global`
     }
   }
 
+  /* Scrollbar - Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: ${colors.darkTranslucent} ${colors.lightTranslucent};
+  }
+
+  /* Scrollbar - Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: ${colors.lightTranslucent};
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: ${colors.darkTranslucent};
+  }
+
   /****************************************************************************
   * Using Locomotive Scroll so hide native scrollbar
   *****************************************************************************/
+  /*
   * {
     scrollbar-width: none;
   }
@@ -205,6 +225,7 @@ const globalStyles = css.global`
   .c-scrollbar {
     z-index: 1;
   }
+  */
 `;
 
 export default globalStyles;
