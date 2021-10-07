@@ -10,20 +10,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-MEJVTC7MGK"
-          ></script>
-          <script>
-            window.dataLayer = window.dataLayer || []; function gtag()
-            {dataLayer.push(arguments)}
-            gtag('js', new Date()); gtag('config', 'G-MEJVTC7MGK');
-          </script>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
-            rel="stylesheet"
-          />
           {/* The following rule throws a compilation error in styled jsx, hence the ugly fix. */}
           <style>
             {"input, textarea {font-size: max(16px, 1rem) !important;}"}
