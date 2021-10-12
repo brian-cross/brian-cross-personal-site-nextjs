@@ -10,6 +10,10 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+            rel="stylesheet"
+          />
           {/* The following rule throws a compilation error in styled jsx, hence the ugly fix. */}
           <style>
             {"input, textarea {font-size: max(16px, 1rem) !important;}"}
