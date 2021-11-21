@@ -136,6 +136,7 @@ export default function NavLink({ children, href, navOpen, onClick }) {
         .slider {
           visibility: hidden;
           position: absolute;
+          will-change: transform; // Fix for Safari v15 rendering bug
           height: ${sliderDims && sliderDims.height}px;
           width: ${sliderDims && sliderDims.width}px;
           top: ${sliderDims && sliderDims.top};
